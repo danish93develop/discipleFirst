@@ -1,0 +1,88 @@
+<style>.internal-header .toolbar-container{padding-top:15px !important;padding-bottom:15px !important}</style>
+<!-- Back button with a default href -->
+<ion-header  class="internal-header ion-align-items-center">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+	  
+    </ion-buttons>
+	    <ion-title  class="text-center"><img class="logo" src="../assets/images/logo.svg"></ion-title>
+		  <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true">
+
+	<section class="text-center internal-hero" style='background:url(../assets/images/notifications-bg.jpg);'>
+		<h3 class="span-underline internal-hero-title"><span>CHOOSE NOTIFICATIONS</span></h3>
+	</section>
+		
+		 <ion-grid class="blog-grid px-1">	 
+		 
+				<!-- List Header with Outline Button -->
+					<ion-row class="ion-align-items-center">
+					 <ion-col class="py-2"><ion-label><h2 class="my-0">Choose Your Notifications:</h2></ion-label></ion-col>
+							
+					</ion-row>
+		 
+		 
+			  	<ion-row class="ion-align-items-center">
+				 	<ion-col size="9">
+						<ion-label>
+							<h2>Daily L.I.S.T.E.N.ing to God</h2>
+						</ion-label>
+					</ion-col>
+				 	<ion-col size="3">
+					 	<ion-toggle [(ngModel)]="isToggled" (ngModelChange)="notify()" color="success" color="success"  ></ion-toggle>
+					</ion-col>					 
+				</ion-row>
+				
+				 <ion-row class="ion-align-items-center">
+				 <ion-col size="9">
+					   <ion-label>
+							<h2>Daily Memory Verse Notifications</h2>
+							<!-- <p>Fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident...</p>	 -->
+						  </ion-label>
+					</ion-col>
+				 <ion-col size="3"><ion-toggle [(ngModel)]="isMemoryVerse" (ionChange)="notifyMemoryVerse()" color="success" color="success" checked ></ion-toggle></ion-col>		     		
+				   </ion-row>
+				   
+					<ion-row class="ion-align-items-center">
+				 <ion-col size="9">
+					   <ion-label>
+							<h2>Weekely Notifications</h2>
+							<!-- <p>Fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident...</p>	 -->
+						  </ion-label>
+					</ion-col>
+				 <ion-col size="3"><ion-toggle [(ngModel)]="isWeekly" (ionChange)="notifyWeekly()" color="success" checked></ion-toggle></ion-col>		     		
+				   </ion-row>
+				   
+				   
+				<ion-row class="ion-align-items-center">
+				 <ion-col size="9">
+					   <ion-label>
+							<h2>Weekely Sharing with Grow Group</h2>
+							<!-- <p>Fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident...</p>	 -->
+						  </ion-label>
+					</ion-col>
+				 <ion-col size="3"><ion-toggle [(ngModel)]="isWeeklyGrowGroup" (ionChange)="notifyWeeklyGrowGroup()" color="success" checked></ion-toggle></ion-col>		     		
+				</ion-row>
+				   
+				   
+					<!-- <ion-row class="ion-align-items-center">
+					   <ion-col class="text-center" size="5" offset="1">				   
+							<ion-button expand="block" color="success" fill="outline">ALL OFF</ion-button>
+						</ion-col>
+					   <ion-col class="text-center" size="5">				   
+							 <ion-button color="success outline" expand="block" >ALL ON</ion-button>
+						</ion-col>	     		
+				   </ion-row> -->
+				   
+		 </ion-grid>
+	
+	</ion-content>
+	

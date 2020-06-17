@@ -1,0 +1,67 @@
+.text-center{text-align:center}
+body{font-family:Nunito Sans;font-weight:300;}
+p{color:#788382;font-size: 14px;line-height:normal;letter-spacing: .3px;font-weight:300;font-family:Nunito Sans;}
+.header-translucen .button-native{color:#000}
+h1, h2, h3, h4, h5,h6, ion-label{font-weight:bold !important;font-family:Abel Pro;letter-spacing: 0.5px;}
+:root {	
+  --ion-color-success: #4bc6aa !important;	
+}
+ion-menu.md[_ngcontent-gmi-c0] ion-list[_ngcontent-gmi-c0]{background:none !important;}
+ion-menu ion-list{position:relative;}
+ion-menu ion-list:after{content:"";position:absolute;bottom:0;width:50%;height:2px;left:30px;background:rgb(238, 202, 136);}
+ion-menu ion-list:before{content:"";position:absolute;top:0;width:50%;height:2px;left:30px;background:rgb(238, 202, 136);} 
+.custom-list{padding-left: 20px;
+font-size: 14px;
+font-family: Nunito sans;
+color: #777;}
+/* =================== PADDING======================== */
+.py-5{padding-top:5rem; padding-bottom:5rem}
+.py-4{padding-top:4rem; padding-bottom:4rem}
+.py-3{padding-top:3rem; padding-bottom:3rem}
+.py-2{padding-top:2rem; padding-bottom:2rem}
+.px-1{padding-right:1rem !important; padding-left:1rem !important}
+.px-2{padding-right:2rem !important; padding-left:2rem !important}
+.py-1{padding-top:1rem !important; padding-bottom:1rem !important}
+.mt-0{margin-top:0 !important;}
+.p-0{padding: 0 !important;;}
+.mb-1{margin-bottom:1rem !important;}
+.mb-2{margin-bottom:2rem !important;}
+.mb-0{margin-bottom:0 !important;}
+.my-0{margin-top:0 !important; margin-bottom:0 !important}
+/* =================== PADDING======================== */
+.hero-section{position:relative;align-items:center;display:flex;}
+.hero-section .logo{max-height:50px}
+.absolute-content{position:absolute;width: 100%;color:#fff;text-decoration:none;letter-spacing:2px;font-family: Abel Pro;}
+.absolute-content span, .span-underline span{position:relative;}
+.absolute-content span::after, .span-underline span::after{position: absolute;content: "";background:#eeca88;height: 2px;display: block;width: 100%;left: 0;
+bottom: -3px;}
+ion-header ion-back-button, ion-menu-button.ios{color:#000 !important;}
+.toolbar-background{background:none !important}
+.internal-header .toolbar-container{padding-top:15px !important;padding-bottom:15px !important}
+ion-header ion-title{text-align:center !important;}
+.internal-header ion-title .logo{max-width:180px !important;margin-top:5px}
+.internal-hero{padding:3rem 0;background-size:cover !important;background-position:center center !important}
+.internal-hero .internal-hero-title{color:#fff;}
+.resource-detail-hero .internal-hero-title{background:rgba(0,0,0,0.3);
+padding: 10px 0;}
+
+/* ============= Blog =============== */
+.blog-grid ion-label p{padding:5px 0}
+.blog-detail-hero{position:relative;}
+.detail-hero-info{position:absolute;bottom:0;width:100%;padding:20px 15px;background-image:linear-gradient(#0000,#000);}
+.jumpto-filters ion-select{padding: 3px 5px 3px 8px;border: 1px solid rgb(58, 179, 229);font-size: 13px;}
+.item-line-before{position:relative;padding: 20px 0 0;}
+.item-line-before:before{position: absolute;content: "";background: #eeca88;height: 2px;display: block;width: 50%;left: 50%;bottom: -20px;
+    margin-left: -25%;}
+/* ============= Blog END=============== */
+.verses-detailed-content h1{font-size: 18px;margin-top: 0;}
+ion-row.locked{position:relative;margin-bottom:5px;}
+ion-row.locked .lock{position: absolute;z-index:1;left: 0;top:0;height: 100%;width: 100%;background: rgba(0,0,0,.5);
+align-items: center;display: flex;justify-content: center;font-weight: bold;}
+ion-row.locked ion-col{/*filter:blur(1px);*/}
+ion-row.locked  .lock ion-icon{color:#fff;font-size:20px;}
+.members p{margin-top:5px;}
+.login-card{padding:20px 0 !important;}
+.week-days-list ion-item div.item-inner{padding-right:0 !important;padding-inline-end:0}
+.week-days-list ion-item ion-label{font-size:16px;}
+.week-days-list .days-btn{padding: 3px 4px;border: 1px solid rgb(58, 179, 229);font-size:9px;margin: 2px;border-radius: 2px;}

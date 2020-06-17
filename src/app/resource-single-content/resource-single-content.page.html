@@ -1,0 +1,31 @@
+<ion-header  class="internal-header ion-align-items-center">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/resources"></ion-back-button>
+	  
+    </ion-buttons>
+	    <ion-title><img class="logo" src="../assets/images/logo.svg"></ion-title>
+		  <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    
+
+     <section  class="text-center internal-hero resource-detail-hero" [style.backgroundImage]="'url(' + data.thumbnail_url + ')'" *ngIf="data">
+    <h3 class="internal-hero-title"><span [innerHTML]="data?.post_title"></span></h3>
+      </section>
+ 
+	<ion-grid class="blog-detail" >	 
+    <ion-col>
+        <div  class="px-1">
+         <ion-label ><span [innerHTML]="data?.post_title"></span> | {{weekData}} | {{dayData}}</ion-label>
+         
+        <div [innerHTML]="data?.request_content" padding class="verses-detailed-content ion-padding-top"></div>
+      </div>
+    </ion-col>
+  </ion-grid>
+  
+</ion-content>

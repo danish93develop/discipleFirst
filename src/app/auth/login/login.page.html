@@ -1,0 +1,53 @@
+<ion-header  class="internal-header ion-align-items-center">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>	  
+    </ion-buttons>
+	    <ion-title><img class="logo" src="../assets/images/logo.svg"></ion-title>
+		  <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light" [fullscreen]="true">
+    
+    
+    <ion-grid style="height:100%">
+        <ion-row color="primary" class="ion-align-items-center" style="height:100%">
+            
+          <ion-col>
+    
+ <ion-card class="mb-0 login-card">
+    <form #form="ngForm" (ngSubmit)="login(form)">
+        
+      
+            <div class="text-center span-underline mb-2"><h3 color="dark"><span>USER LOGIN</span></h3></div>
+            
+           
+              <ion-item>
+                  
+                <ion-input name="username" type="email" placeholder="your@email.com" ngModel required></ion-input>
+              </ion-item>
+              
+              <ion-item>
+                <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
+              </ion-item>
+          
+            <div class="ion-padding">
+              <ion-button type="submit" [disabled]="form.invalid" expand="block" color="secondary">Login</ion-button>
+              </div>
+         
+      
+    </form>
+  </ion-card>
+  
+   
+          </ion-col>
+          
+        </ion-row>
+        
+      </ion-grid>
+  
+</ion-content>

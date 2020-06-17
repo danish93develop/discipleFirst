@@ -1,0 +1,77 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+      
+    <ion-menu contentId="main-content" type="overlay">
+        
+      <!---ion-content>
+          
+        <ion-list id="inbox-list">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content-->
+      
+    <ion-content>
+          
+        <div class="sidebar-small-links" *ngIf="this.userData; else notShow">
+            <ion-menu-toggle auto-hide="false">
+                <ion-item (click)="logout()">Logout</ion-item>
+            </ion-menu-toggle>
+        </div>
+         
+        <ng-template #notShow>
+            <div class="sidebar-small-links">
+                <ion-menu-toggle auto-hide="false">
+                    <ion-item routerLink="login" lines="none">Login</ion-item>
+                </ion-menu-toggle>
+            </div>
+        </ng-template>
+          
+          
+        <ion-list lines="none">
+            
+            <ion-menu-toggle auto-hide="false">
+                <ion-item (click)="pageload()"> Home </ion-item>
+            </ion-menu-toggle>
+            
+            <ion-menu-toggle auto-hide="false"><ion-item routerLink="resources">Digital Resources </ion-item></ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false" *ngIf="this.userData;"><ion-item  (click)="gotoResources('memory_verses')"> Memory Verses </ion-item></ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false" *ngIf="this.userData;"><ion-item (click)="gotoResources('leader_notes')"> Leader Notes </ion-item></ion-menu-toggle>
+          
+            <ion-item lines="none" (click)="isAbout === 1 ? isAbout = 0 : isAbout = 1">
+                About
+               <ion-icon slot="end" [name]="isAbout? 'chevron-down-outline' : 'chevron-forward-outline'"></ion-icon>
+            </ion-item>
+              
+            <ion-menu-toggle auto-hide="false">
+              <ion-item menuclose [hidden]="!isAbout" [routerLink]="['about/About']" class="sub-menu">Who We Are</ion-item>
+              <ion-item menuclose [hidden]="!isAbout" [routerLink]="['staff']" class="sub-menu">Our Staff</ion-item>
+              <ion-item menuclose [hidden]="!isAbout" [routerLink]="['directors']" class="sub-menu">Board of Directors</ion-item>
+              <ion-item menuclose [hidden]="!isAbout" [routerLink]="['speaking']" class="sub-menu">Speaking Request</ion-item> 
+            </ion-menu-toggle>
+          
+            
+            <ion-menu-toggle auto-hide="false"><ion-item routerLink="blog">Blog </ion-item></ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false" *ngIf="this.userData;">
+                <!--<ion-item (click)="openWithSystemBrowser('https://dev.disciplefirst.com/store/')">Store</ion-item>-->
+                <ion-item (click)="openWithInAppBrowser('https://dev.disciplefirst.com/store/')">Store</ion-item>
+                <!--<ion-item (click)="openWithCordovaBrowser('https://dev.disciplefirst.com/store/')">Store</ion-item>-->
+            </ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false"><ion-item routerLink="contact">Contact </ion-item></ion-menu-toggle>
+            
+        </ion-list>
+      
+        <div class="sidebar-small-links">
+            <ion-menu-toggle auto-hide="false"><ion-item routerLink="notifications" lines="none">Notifications</ion-item></ion-menu-toggle>
+            <!-- <ion-menu-toggle auto-hide="false"><ion-item routerLink="settings" lines="none">App Settings</ion-item></ion-menu-toggle> -->
+        </div>
+      
+    </ion-content>
+      
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

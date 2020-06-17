@@ -1,0 +1,134 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import 'theme/fonts';
+/*=================================*/
+
+ion-split-pane{ 
+    --border: none !important;
+    ion-menu{
+     --background:rgba(224, 228, 227, 0.8) !important; 
+        ion-content{            
+            --background:rgba(224, 228, 227, 0.8) !important;
+            --padding-start: 0 !important;
+            ion-list, .list-md{ 
+                background:none !important;
+                padding: 20px 0 20px !important;
+                --padding-start: 0;
+                
+                    ion-item{
+                        --background:none !important;
+                         --color: rgb(35, 71, 83) !important;
+                         background:url(assets/images/plygon.png) repeat-y !important;
+                         background-size: 13% !important;
+                         background-position: -13px 0 !important;
+                         position:relative;
+                         padding-left: 30px;
+                         font-family:Abel Pro;
+                         letter-spacing: 0.5px;
+                           
+                         }
+
+                   }
+              
+            ion-item.sub-menu
+                   {
+                    background:none !important; 
+                    padding-left:50px;
+                    font-size: 14px;
+                    --min-height: 35px !important;
+                    }     
+            div.sidebar-small-links
+                               {
+                padding:20px 0 0 20px;
+                
+                 ion-item
+                   {
+                   --background:none !important; 
+                    --color: rgb(35, 71, 83) !important;
+                    font-size:12px;
+                     --min-height: 30px !important;
+                    div.item-inner
+                      {
+                       --border:none !important;   
+                      }
+                   }
+                
+                 }     
+           
+                   
+                 
+            }
+        }
+    }
+ion-menu.md[_ngcontent-wnl-c0] ion-list[_ngcontent-wnl-c0]{background:none !important; }
+app-home{
+    .toolbar-background{
+        --position:relative !important;
+        
+    }
+    ion-toolbar {
+    --background: transparent;
+   }
+}
+.blog-grid ion-label
+     {
+         p {
+    padding:0 !important;
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0;
+         }
+}
+.resources-grid  ion-col
+ {
+         p {
+    padding:0 !important;
+    display: -webkit-box;
+    -webkit-line-clamp:7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+         }
+   }
+.internal-hero-title
+     {
+         ion-icon {font-size: 16px;
+             
+         } 
+         
+     }
+.week-days-list   
+   {
+       
+       ion-item{
+    --inner-padding-end:0   
+       }
+       
+   }
+
+
+

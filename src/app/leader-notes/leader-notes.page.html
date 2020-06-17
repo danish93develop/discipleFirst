@@ -1,0 +1,40 @@
+<ion-header  class="internal-header ion-align-items-center">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/resources"></ion-back-button>
+	  
+    </ion-buttons>
+	    <ion-title><img class="logo" src="../assets/images/logo.svg"></ion-title>
+		  <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+     <section class="text-center internal-hero" style='background:url(../assets/images/memory-verses.jpg);'>
+         <h3 class="span-underline internal-hero-title">
+             <span>LEADER NOTE</span>
+             <!--<ion-icon name="arrow-forward-sharp"></ion-icon>-->
+         </h3>
+         </section> 
+
+  <!---section class="blog-detail-hero" *ngIf="data">
+    <img [src]="data.thumbnail_url">
+		<ion-col class="detail-hero-info" padding>
+			<ion-label>
+        <h2>Leader Notes</h2>
+			</ion-label>			
+		</ion-col>   
+
+  </section-->
+
+  <div *ngFor="let item of bookData | keyvalue" class="px-1 item-line-before">
+
+      <ion-label><span>{{item.key}}</span></ion-label>
+      
+    <div [innerHTML] ="bookData[item.key].leader_notes" ></div>
+  </div>
+
+</ion-content>

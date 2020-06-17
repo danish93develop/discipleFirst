@@ -1,0 +1,267 @@
+<style>.internal-header .toolbar-container{padding-top:15px !important;padding-bottom:15px !important}</style>
+
+<!-- Back button with a default href -->
+<ion-header  class="internal-header ion-align-items-center">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+	  
+    </ion-buttons>
+	    <ion-title><img class="logo" src="../assets/images/logo.svg"></ion-title>
+		  <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+	<span *ngIf="this.key; else changedBackground">	
+		<span *ngIf="this.key['memory_verses']== 'memory_verses'; else leaderNotesBanner">
+			<section class="text-center internal-hero ion-align-items-center" style='background:url(../assets/images/memory-verses.jpg);'>
+				<h3 class="span-underline internal-hero-title"><span>MEMORY VERSES</span></h3>
+			</section>
+		</span>
+		<ng-template #leaderNotesBanner>
+			<section class="text-center internal-hero ion-align-items-center" style='background:url(../assets/images/memory-verses.jpg);'>
+				<h3 class="span-underline internal-hero-title"><span>LEADER NOTES</span></h3>
+			</section>
+		</ng-template>
+	</span>
+	<ng-template #changedBackground>
+		<section class="text-center internal-hero" style='background:url(../assets/images/digital-resources.jpg);'>
+			<h3 class="span-underline internal-hero-title"><span>DIGITAL RESOURCES</span></h3>
+		</section>
+	</ng-template>
+
+	
+	 <ion-grid class="resources-grid">
+
+	 <!--========== Tool BAr ============-->
+	<ion-toolbar>
+		
+		<ion-row >
+
+			<span *ngIf="this.key; else mainTitle">	
+				<span *ngIf="this.key['memory_verses']== 'memory_verses'; else leaderNotesTitle">
+					<ion-col size="7" class="ion-align-self-center ion-justify-content-start">
+						<ion-title class="p-0"><ion-label><h2 class="my-0">Click on book below to view Memory Verse</h2></ion-label></ion-title>
+					</ion-col>
+				</span>
+				<ng-template #leaderNotesTitle>
+					<ion-col size="7" class="ion-align-self-center ion-justify-content-start">
+						<ion-title class="p-0"><ion-label><h2 class="my-0">Click on book below to view Leader Note</h2></ion-label></ion-title>
+					</ion-col>
+				</ng-template>
+			</span>
+			<ng-template #mainTitle>
+				<ion-col size="7" class="ion-align-self-center ion-justify-content-start">
+					<ion-title class="p-0"><ion-label><h2 class="my-0">Books</h2></ion-label></ion-title>
+				</ion-col>
+			</ng-template>
+			
+		</ion-row>
+
+	</ion-toolbar>
+	  <!--============= Tool BAr END ==========-->
+	 
+	    <span *ngIf="this.userData">
+			<ion-row *ngFor="let item of items">
+				<span *ngIf="item.show_book == 'yes'">
+					<span *ngIf="item.has_access == true; else lockedbooks">
+						<span *ngIf="this.key; else mainPageContent">
+							<span *ngIf="this.key['memory_verses']== 'memory_verses'; else goToleaderNotesBook">
+								<ion-row (click)="gotoMemoryVerses(item.ID, 'memory_versus')">
+									<ion-col size="5">
+									<img src="{{item.thumbnail_url}}">					
+									</ion-col>
+									<ion-col size="7">
+										<ion-label>
+											<h2 *ngIf="item.post_title" [innerHTML]="item.post_title"></h2>
+											<p *ngIf="item.post_excerpt" [innerHTML]="item.post_excerpt"></p>
+										</ion-label>
+									</ion-col>
+								</ion-row>
+							</span>
+							<ng-template #goToleaderNotesBook>
+								<ion-row (click)="gotoLeaderNotes(item.ID,'leader_notes')">
+									<ion-col size="5">
+									<img src="{{item.thumbnail_url}}">					
+									</ion-col>
+									<ion-col size="7">
+										<ion-label>
+											<h2 *ngIf="item.post_title" [innerHTML]="item.post_title"></h2>
+											<p *ngIf="item.post_excerpt" [innerHTML]="item.post_excerpt"></p>
+										</ion-label>
+									</ion-col>
+								</ion-row>							
+							</ng-template>
+						</span>
+						<ng-template #mainPageContent>
+							<ion-row (click)="goToProductDetails(item.ID)">
+								<ion-col size="5">
+								<img src="{{item.thumbnail_url}}">					
+								</ion-col>
+								<ion-col size="7">
+									<ion-label>
+										<h2 *ngIf="item.post_title" [innerHTML]="item.post_title"></h2>
+										<p *ngIf="item.post_excerpt" [innerHTML]="item.post_excerpt"></p>
+									</ion-label>
+								</ion-col>
+							</ion-row>
+						</ng-template>
+					</span>
+				</span>
+				
+			    <ng-template #lockedbooks>
+					<span *ngIf="barcodes != null; else lockedBooksAfterLogin">
+						<!-- <span *ngFor="let barcode of barcodes"> -->
+							<span *ngIf="barcodeBookIdMap[item.ID]; else unlockedBooks">
+									<ion-row (click)="goToProductDetails(item.ID)">
+										<ion-col size="5">
+										<img src="{{item.thumbnail_url}}">					
+										</ion-col>
+										<ion-col size="7">
+											<ion-label>
+												<h2 *ngIf="item.post_title" [innerHTML]="item.post_title"></h2>
+												<p *ngIf="item.post_excerpt" [innerHTML]="item.post_excerpt"></p>
+											</ion-label>
+										</ion-col>
+									</ion-row>
+								</span>
+								<ng-template #unlockedBooks>									
+									<ion-row class="locked" (click)="scanBarcode()">
+										<div class="lock text-center ion-text-center">
+											<ion-icon name="lock-closed-outline"></ion-icon>
+											<ion-text color="light"> Scan Barcode to unlock.</ion-text>
+										</div>
+										<ion-col size="5">
+											<img src="{{item.thumbnail_url}}">					
+										</ion-col>
+										<ion-col size="7">
+											<ion-label>
+												<h2 *ngIf="item.post_title" [innerHTML]="item.post_title"></h2>
+												<p *ngIf="item.post_excerpt" [innerHTML]="item.post_excerpt"></p>
+											</ion-label>
+										</ion-col>
+									</ion-row>
+								</ng-template>
+							</span>
+						<!-- </span> -->
+						<ng-template #lockedBooksAfterLogin>
+							<ion-row class="locked" (click)="scanBarcode()">
+								<div class="lock text-center ion-text-center">
+									<ion-icon name="lock-closed-outline"></ion-icon>
+									<ion-text color="light"> Scan Barcode to unlock.</ion-text>
+								</div>
+									<ion-col size="5">
+									<img src="{{item.thumbnail_url}}">					
+									</ion-col>
+									<ion-col size="7">
+										<ion-label>
+											<h2 *ngIf="item.post_title" [innerHTML]="item.post_title"></h2>
+											<p *ngIf="item.post_excerpt" [innerHTML]="item.post_excerpt"></p>
+										</ion-label>
+									</ion-col>
+								</ion-row>
+						</ng-template>
+    				</ng-template>
+					
+			</ion-row>
+
+			<!--<ion-infinite-scroll (ionInfinite)="loadMore($event)">-->
+			<!--	<ion-infinite-scroll-content></ion-infinite-scroll-content>-->
+			<!--  </ion-infinite-scroll>-->
+		</span>
+		
+
+		<!-- <ng-template #notavailable> -->
+			<span *ngIf="!this.userData">
+				
+					
+				<div *ngFor="let item of items" class="locked" >
+					<span *ngIf="barcodes != null; else booksWithoutScan">
+						<!-- <span *ngFor="let barcode of barcodes"> -->
+							<span *ngIf="item.show_book == 'yes'">
+								<span *ngIf="barcodeBookIdMap[item.ID]; else lockedBooks" class="inloop">
+								
+									<span (click)="goToProductDetails(item.ID)">
+										<ion-row class="locked" >
+											<ion-col size="5">
+												<img src="{{item.thumbnail_url}}">					
+											</ion-col>
+											<ion-col size="7">
+												<ion-label>
+													<h2 *ngIf="item.post_title" [innerHTML]="item.post_title"></h2>
+													<p *ngIf="item.post_excerpt" [innerHTML]="item.post_excerpt"></p>
+												</ion-label>
+											</ion-col>
+                                        </ion-row>
+									</span>
+								</span>
+						
+								<ng-template #lockedBooks>
+									<span  (click)="scanBarcode()" class="scannedloop">										
+										<ion-row class="locked">
+											<div class="lock text-center ion-text-center">
+												<ion-icon name="lock-closed-outline"></ion-icon>
+												<ion-text color="light"> Scan Barcode to unlock.</ion-text>
+											</div>
+
+											<ion-col size="5">
+												<img src="{{item.thumbnail_url}}">					
+											</ion-col>
+											<ion-col size="7">
+												<ion-label>
+													<h2 *ngIf="item.post_title" [innerHTML]="item.post_title"></h2>
+													<p *ngIf="item.post_excerpt" [innerHTML]="item.post_excerpt"></p>
+												</ion-label>
+											</ion-col>
+										</ion-row>
+									</span>
+								</ng-template>
+							</span>
+						<!-- </span> -->
+					</span>
+
+					<ng-template #booksWithoutScan>
+						<span *ngIf="item.show_book == 'yes'" (click)="scanBarcode()" class="withoutscan">
+							
+							<ion-row class="locked">
+								<div class="lock text-center ion-text-center">
+									<ion-icon name="lock-closed-outline"></ion-icon>
+									<ion-text color="light"> Scan Barcode to unlock.</ion-text>
+								</div>
+							<ion-col size="5">
+								<img src="{{item.thumbnail_url}}">					
+							</ion-col>
+							<ion-col size="7">
+								<ion-label>
+									<h2 *ngIf="item.post_title" [innerHTML]="item.post_title"></h2>
+									<p *ngIf="item.post_excerpt" [innerHTML]="item.post_excerpt"></p>
+								</ion-label>
+							</ion-col>
+						</ion-row>
+						</span>
+					</ng-template>
+				</div>				
+			</span>
+		
+
+		<!-- </ng-template> -->
+		
+		
+	    
+	 </ion-grid>
+	
+   
+     
+  
+  
+</ion-content>
+
+
+
+  
+  
+

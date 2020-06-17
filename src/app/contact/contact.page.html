@@ -1,0 +1,60 @@
+<style>.internal-header .toolbar-container{padding-top:15px !important;padding-bottom:15px !important}</style>
+<!-- Back button with a default href -->
+<ion-header  class="internal-header ion-align-items-center">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+	  
+    </ion-buttons>
+	    <ion-title><img class="logo" src="../assets/images/logo.svg"></ion-title>
+		  <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" color="light">
+    
+
+<section  class="text-center internal-hero ion-align-items-center" style='background:url(../assets/images/contact-us-banner.jpg)'>
+    <h3 class="span-underline internal-hero-title"><span>Contact us </span></h3>
+  </section>
+  
+  
+   <ion-grid>
+        <ion-row>  
+          <ion-col size="12">
+               <ion-card class="mb-0">
+                   <ion-card-header style="padding-top:0;padding-bottom:0">
+                    <ion-card-title>
+                     <h6><ion-icon name="location-outline"></ion-icon> Mailing Address</h6></ion-card-title>
+                 </ion-card-header>
+                <ion-card-content style="padding-left: 35px;">   
+                <p>discipleFIRST, PO Box 758<br>
+                   Colleyville, TX 76034</p> 
+                   </ion-card-content>
+                   </ion-card>
+              </ion-col>
+              <ion-col size="12">
+                   <ion-card>
+                        <ion-card-header style="padding-top:0;padding-bottom:0">
+                    <ion-card-title>
+                     <h6><ion-icon name="call-outline"></ion-icon> Phone Number</h6></ion-card-title>
+                 </ion-card-header>
+                <ion-card-content style="padding-left: 35px;">
+               <ion-text color="primary"> <a href="tel:(817) 519-8263" style="text-decoration:none">(817) 519-8263</a>
+                </ion-text>
+                </ion-card-content>
+                   </ion-card>
+              </ion-col>
+          
+        </ion-row>
+       </ion-grid>
+  
+    <div class="px-1">
+     <!---p class="text-center">Please send us a message using the form below and our staff will contact you shortly. Thank you!</p-->    
+    <iframe src="https://disciplefirst.ccbchurch.com/goto/forms/8/responses/new" style="height:600px;width:100%"></iframe>
+     </div>
+
+</ion-content>

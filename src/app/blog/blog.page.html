@@ -1,0 +1,64 @@
+<style>.internal-header .toolbar-container{padding-top:15px !important;padding-bottom:15px !important}</style>
+<!-- Back button with a default href -->
+<ion-header  class="internal-header ion-align-items-center">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>	  
+    </ion-buttons>
+	    <ion-title><img class="logo" src="../assets/images/logo.svg"></ion-title>
+		  <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <section class="text-center internal-hero" style='background:url(../assets/images/blog-bg.jpg);'>
+    <h3 class="span-underline internal-hero-title"><span>READ THE BLOG</span></h3>
+  </section>      
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+    
+     <ion-grid class="blog-grid">	 
+     
+         <ion-toolbar> 
+          <ion-row class="ion-align-items-center">
+           <ion-col size="9"><ion-label><h2 class="my-0">Blog Posts</h2></ion-label></ion-col>
+            <!---ion-col size="3">
+              <ion-select ok-text="Okay" cancel-text="Nah">
+                <ion-select-option value="dos">Sort By</ion-select-option>
+                <ion-select-option value="lunix">Blog Notification</ion-select-option>
+                <ion-select-option value="mac7">Search Blog</ion-select-option>                
+              </ion-select>
+            </ion-col-->	
+          </ion-row>
+          </ion-toolbar> 
+     
+          <ion-row *ngFor="let item of items" (click)="goToPostDetails(item.id)">
+           <ion-col size="5">
+             <!-- <img src="../assets/images/default-placeholder.png"> -->
+             <img src="{{item.jetpack_featured_media_url}}" >
+           </ion-col>
+           <ion-col size="7">
+               <ion-label>
+              <h2 *ngIf="item.title && item.title.rendered" [innerHTML]="item.title.rendered"></h2>
+              <p *ngIf="item.excerpt && item.excerpt.rendered" [innerHTML]="item.excerpt.rendered"></p>			                            
+              <small>{{ item.date_gmt | date }}</small>
+              </ion-label>
+              
+            </ion-col>		
+          </ion-row>
+
+     </ion-grid>  
+     
+     <!--<ion-button expand="block" color="secondary" size="medium" (click)="loadMore($event)" >Load More</ion-button>-->
+
+     <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    
+  </ion-content>

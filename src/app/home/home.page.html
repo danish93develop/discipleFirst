@@ -1,0 +1,29 @@
+<style>:host{background:none !important;}ion-header{position:absolute} 
+.header-md::after{background-image:none;}
+</style>
+<ion-header class="ion-no-border"  translucent>
+  <ion-toolbar translucent>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="text-center hero-section">
+    <a href="#" class="absolute-content" ><img class="logo" src="../assets/images/logo.svg"></a>
+    <img src="../assets/images/home-first-section-bg.jpg">
+  </section>
+  <section class="text-center hero-section" routerLink="/resources">
+    <a href="#" class="absolute-content"><span>DIGITAL RESOURCES</span></a>
+    <img src="../assets/images/digital-resources.jpg">
+  </section>
+  <section class="text-center hero-section" routerLink="/blog">
+    <a href="#" class="absolute-content"><span>READ THE BLOG</span></a>
+    <img src="../assets/images/blog-bg.jpg">
+  </section>
+  <section class="text-center hero-section" routerLink="/notifications">
+    <a href="#" class="absolute-content"><span>CHOOSE NOTIFICATIONS</span></a>
+    <img src="../assets/images/notifications-bg.jpg">
+  </section>
+</ion-content>

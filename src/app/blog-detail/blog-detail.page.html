@@ -1,0 +1,42 @@
+<style>.internal-header .toolbar-container{padding-top:15px !important;padding-bottom:15px !important}</style>
+<!-- Back button with a default href -->
+<ion-header  class="internal-header ion-align-items-center">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/blog"></ion-back-button>
+	  
+    </ion-buttons>
+	    <ion-title><img class="logo" src="../assets/images/logo.svg"></ion-title>
+		  <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+	<section class="blog-detail-hero" *ngIf="data">
+		<ion-col class="detail-hero-info" padding>
+			<ion-label>
+			<ion-text color="light"><h2 [innerHTML]="data?.title.rendered"></h2></ion-text>		
+			<ion-text color="light"><h5>January 3, 2020</h5></ion-text> 
+			</ion-label>			
+		</ion-col>
+		<img [src]="data.media_url" style="width:100%">
+	</section>
+    
+	
+	 <ion-grid class="blog-detail">
+	   <ion-col>
+		<div class='px-1'>			
+			<p [innerHTML]="data?.content.rendered" class="mt-0"></p>
+		</div>
+	   </ion-col>
+     
+	 </ion-grid>
+	
+   
+     
+  
+  
+</ion-content>

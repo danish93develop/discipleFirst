@@ -1,0 +1,74 @@
+<ion-header  class="internal-header ion-align-items-center">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/resources"></ion-back-button>
+	  
+    </ion-buttons>
+	    <ion-title><img class="logo" src="../assets/images/logo.svg"></ion-title>
+		  <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    
+     <section class="text-center internal-hero" style='background:url(../assets/images/memory-verses.jpg);'>
+         <h3 class="span-underline internal-hero-title">
+             <span>MEMORY VERSE</span>
+             <!--<ion-icon name="arrow-forward-sharp"></ion-icon>-->
+         </h3>
+         </section> 
+         
+      <!--    <ion-grid class="px-1 jumpto-filters mb-1"> -->
+      <!--    <ion-row  class="ion-align-items-center"> -->
+      <!--     <ion-col size="3">  <ion-label>Jump to</ion-label></ion-col>-->
+      <!--     <ion-col size="3" style="max-width:100%">-->
+      <!--             <ion-select placeholder="Week">-->
+      <!--            <ion-select-option value="f">Week 1</ion-select-option>-->
+      <!--            <ion-select-option value="m">Week 2</ion-select-option>-->
+      <!--            <ion-select-option value="m">Week 3</ion-select-option>-->
+      <!--            <ion-select-option value="m">Week 4</ion-select-option>-->
+      <!--            <ion-select-option value="m">Week 5</ion-select-option>-->
+      <!--            <ion-select-option value="m">Week 6</ion-select-option>-->
+      <!--            <ion-select-option value="m">Week 7</ion-select-option>-->
+      <!--            </ion-select>-->
+      <!--        </ion-col>  -->
+              
+      <!--      <ion-col size="3">-->
+      <!--             <ion-select placeholder="Day" style="max-width:100%">-->
+      <!--            <ion-select-option value="f">Day 1</ion-select-option>-->
+      <!--            <ion-select-option value="m">Day 2</ion-select-option>-->
+      <!--            <ion-select-option value="m">Day 3</ion-select-option>-->
+      <!--            <ion-select-option value="m">Day 4</ion-select-option>-->
+      <!--            <ion-select-option value="m">Day 5</ion-select-option>-->
+      <!--            <ion-select-option value="m">Day 6</ion-select-option>-->
+      <!--            <ion-select-option value="m">Day 7</ion-select-option>-->
+      <!--            </ion-select>-->
+      <!--        </ion-col>  -->
+      <!--     <ion-col size="3" padding> <ion-button expand="block" color="secondary" size="small">Go</ion-button></ion-col>-->
+      <!--      </ion-row> -->
+    	 <!--</ion-grid>-->
+
+  <!---section class="blog-detail-hero" *ngIf="data">
+    <img [src]="data.thumbnail_url">
+		<ion-col class="detail-hero-info" padding>
+			<ion-label>
+        <h2 [innerHTML]="data?.post_title"></h2>
+        <h2>Memory Verses</h2>
+			</ion-label>			
+		</ion-col>   
+
+  </section-->
+
+  <div *ngIf="data" class="px-1 item-line-before">
+    <ion-label><span [innerHTML]="data['post_title']"></span></ion-label>
+    <div [innerHTML]="data['weekly_memory_verses']"></div>
+  </div> 
+  
+  <!-- <div *ngFor="let item of bookData | keyvalue" class="px-1 item-line-before">
+      <ion-label><span [innerHTML]="bookData[item.key].book_title"></span> | {{item.key}}</ion-label>
+    <div [innerHTML] ="bookData[item.key].memory_verses" ></div>
+  </div> -->
+
+</ion-content>
