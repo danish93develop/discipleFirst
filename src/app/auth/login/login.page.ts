@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController, LoadingController } from '@ionic/angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -60,17 +59,23 @@ export class LoginPage implements OnInit {
           this.loading.dismiss();
         },
         error => {
-          // let toast = this.toastCtrl.create({
-          //     message: 'Wrong Email / Password.',
-          //     duration: 3000,
-          //     position: 'top'
-          // });
-
-          // toast.present();
-
-          alert("Username/Password incorrect");
+          this.presentToast("Username/Password incorrect");
+          //alert("Username/Password incorrect");
           this.loading.dismiss();
         });
+    }
+
+    async presentToast(msg) {
+
+      let toast = await this.toastCtrl.create({
+        message: msg,
+        duration: 3000,
+        position: 'bottom',
+        cssClass: 'normal-toast'
+      });
+  
+      toast.present();
+  
     }
 
   

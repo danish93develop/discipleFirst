@@ -30,7 +30,6 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^5.0.0",
     "again": "0.0.1",
-    "cordova-android": "8.1.0",
     "cordova-plugin-badge": "^0.8.8",
     "cordova-plugin-local-notification": "^0.9.0-beta.2",
     "core-js": "^2.5.4",
@@ -91,8 +90,6 @@
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       }
     },
-    "platforms": [
-      "android"
-    ]
+    "platforms": []
   }
 }
