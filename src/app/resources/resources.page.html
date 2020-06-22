@@ -38,31 +38,30 @@
 	 <ion-grid class="resources-grid">
 
 	 <!--========== Tool BAr ============-->
-	<ion-toolbar>
-		
-		<ion-row >
 
+		<ion-toolbar>
 			<span *ngIf="this.key; else mainTitle">	
 				<span *ngIf="this.key['memory_verses']== 'memory_verses'; else leaderNotesTitle">
-					<ion-col size="7" class="ion-align-self-center ion-justify-content-start">
-						<ion-title class="p-0"><ion-label><h2 class="my-0">Click on book below to view Memory Verse</h2></ion-label></ion-title>
-					</ion-col>
+					<div class="ion-text-start px-half">
+						<h5>Click on book below to view Memory Verses</h5>
+					  </div>
 				</span>
-				<ng-template #leaderNotesTitle>
-					<ion-col size="7" class="ion-align-self-center ion-justify-content-start">
-						<ion-title class="p-0"><ion-label><h2 class="my-0">Click on book below to view Leader Note</h2></ion-label></ion-title>
-					</ion-col>
+				<ng-template #leaderNotesTitle>				
+
+					<div class="ion-text-start px-half">
+						<h5>Click on book below to view Leader Notes</h5>
+					  </div>
+
+
 				</ng-template>
 			</span>
-			<ng-template #mainTitle>
-				<ion-col size="7" class="ion-align-self-center ion-justify-content-start">
-					<ion-title class="p-0"><ion-label><h2 class="my-0">Books</h2></ion-label></ion-title>
-				</ion-col>
+			<ng-template #mainTitle>			
+				<div class="ion-text-start px-half">
+					<h5>Books</h5>
+				  </div>
 			</ng-template>
-			
-		</ion-row>
+		</ion-toolbar>
 
-	</ion-toolbar>
 	  <!--============= Tool BAr END ==========-->
 	 
 	    <span *ngIf="this.userData">

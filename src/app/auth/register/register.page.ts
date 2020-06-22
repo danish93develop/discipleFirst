@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
-  url: string = 'https://dev.disciplefirst.com/'
+  url: string = 'https://disciplefirst.com/'
   responseData:any;
   loading:any;
 

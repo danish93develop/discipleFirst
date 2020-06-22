@@ -37,9 +37,9 @@
                 <ion-item (click)="pageload()"> Home </ion-item>
             </ion-menu-toggle>
             
-            <ion-menu-toggle auto-hide="false"><ion-item routerLink="resources">Digital Resources </ion-item></ion-menu-toggle>
-            <ion-menu-toggle auto-hide="false" *ngIf="this.userData;"><ion-item  (click)="gotoResources('memory_verses')"> Memory Verses </ion-item></ion-menu-toggle>
-            <ion-menu-toggle auto-hide="false" *ngIf="this.userData;"><ion-item (click)="gotoResources('leader_notes')"> Leader Notes </ion-item></ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false"><ion-item routerLink="resources" detail="false">Digital Resources </ion-item></ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false" *ngIf="this.userData;"><ion-item detail="false" (click)="gotoResources('memory_verses')"> Memory Verses </ion-item></ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false" *ngIf="this.userData;"><ion-item detail="false" (click)="gotoResources('leader_notes')"> Leader Notes </ion-item></ion-menu-toggle>
           
             <ion-item lines="none" (click)="isAbout === 1 ? isAbout = 0 : isAbout = 1">
                 About
@@ -47,27 +47,27 @@
             </ion-item>
               
             <ion-menu-toggle auto-hide="false">
-              <ion-item menuclose [hidden]="!isAbout" [routerLink]="['about/About']" class="sub-menu">Who We Are</ion-item>
-              <ion-item menuclose [hidden]="!isAbout" [routerLink]="['staff']" class="sub-menu">Our Staff</ion-item>
-              <ion-item menuclose [hidden]="!isAbout" [routerLink]="['directors']" class="sub-menu">Board of Directors</ion-item>
-              <ion-item menuclose [hidden]="!isAbout" [routerLink]="['speaking']" class="sub-menu">Speaking Request</ion-item> 
+              <ion-item menuclose [hidden]="!isAbout" [routerLink]="['about/About']" class="sub-menu" detail="false">Who We Are</ion-item>
+              <ion-item menuclose [hidden]="!isAbout" [routerLink]="['staff']" class="sub-menu" detail="false">Our Staff</ion-item>
+              <ion-item menuclose [hidden]="!isAbout" [routerLink]="['directors']" class="sub-menu" detail="false">Board of Directors</ion-item>
+              <ion-item menuclose [hidden]="!isAbout" [routerLink]="['speaking']" class="sub-menu" detail="false">Speaking Request</ion-item> 
             </ion-menu-toggle>
           
             
-            <ion-menu-toggle auto-hide="false"><ion-item routerLink="blog">Blog </ion-item></ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false"><ion-item routerLink="blog" detail="false">Blog </ion-item></ion-menu-toggle>
             <ion-menu-toggle auto-hide="false" *ngIf="this.userData;">
-                <!--<ion-item (click)="openWithSystemBrowser('https://dev.disciplefirst.com/store/')">Store</ion-item>-->
-                <ion-item (click)="openWithInAppBrowser('https://dev.disciplefirst.com/store/')">Store</ion-item>
-                <!--<ion-item (click)="openWithCordovaBrowser('https://dev.disciplefirst.com/store/')">Store</ion-item>-->
+                <!--<ion-item (click)="openWithSystemBrowser('https://disciplefirst.com/store/')">Store</ion-item>-->
+                <ion-item (click)="openWithInAppBrowser('https://disciplefirst.com/store/')" detail="false">Store</ion-item>
+                <!--<ion-item (click)="openWithCordovaBrowser('https://disciplefirst.com/store/')">Store</ion-item>-->
             </ion-menu-toggle>
-            <ion-menu-toggle auto-hide="false"><ion-item routerLink="contact">Contact </ion-item></ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false"><ion-item routerLink="contact" detail="false">Contact </ion-item></ion-menu-toggle>
             
         </ion-list>
       
         <div class="sidebar-small-links">
-            <ion-menu-toggle auto-hide="false"><ion-item routerLink="register" lines="none">Register</ion-item></ion-menu-toggle>
-            <ion-menu-toggle auto-hide="false"><ion-item routerLink="notifications" lines="none">Notifications</ion-item></ion-menu-toggle>
-            <ion-menu-toggle auto-hide="false"><ion-item routerLink="privacypolicy" lines="none">Privacy Policy</ion-item></ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false"><ion-item routerLink="register" lines="none" detail="false">Register</ion-item></ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false"><ion-item routerLink="notifications" lines="none" detail="false">Notifications</ion-item></ion-menu-toggle>
+            <ion-menu-toggle auto-hide="false"><ion-item routerLink="privacypolicy" lines="none" detail="false">Privacy Policy</ion-item></ion-menu-toggle>
         </div>
       
     </ion-content>

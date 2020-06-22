@@ -73,10 +73,10 @@ export class NotificationsPage implements OnInit {
         data: { secret: 'secret' },
         trigger: { every: { hour: 10, minute: 10 }, count: 1440 }
       });
-      this.presentToast("Notification enable");
+      this.presentToast("Notification Enabled");
     }else{
       console.log("Toggled: "+ this.isToggled); 
-      this.presentToast("Notification disable");
+      this.presentToast("Notification Disabled");
       localStorage.removeItem('firstNotification');
     }   
 
@@ -94,10 +94,10 @@ export class NotificationsPage implements OnInit {
         data: { secret: 'secret' },
         trigger: { every: { hour: 11, minute: 0 }, count: 1440 }
       });
-      this.presentToast("Notification enable");
+      this.presentToast("Notification Enabled");
     }else{
       console.log("MemoryVerse: "+ this.isMemoryVerse); 
-      this.presentToast("Notification disable");
+      this.presentToast("Notification Disabled");
       localStorage.removeItem('secondNotification');
     }
   }
@@ -135,10 +135,10 @@ export class NotificationsPage implements OnInit {
         trigger: { 'every': {'weekday': 1, 'hour': 10, 'minute': 40 }, 'count': 1 }
       }
     ]);
-    this.presentToast("Notification enable");
+    this.presentToast("Notification Enabled");
     }else{
       console.log("Weekly: "+ this.isWeekly); 
-      this.presentToast("Notification disable");
+      this.presentToast("Notification Disabled");
       localStorage.removeItem('thirdNotification');
     }
   }
@@ -155,10 +155,10 @@ export class NotificationsPage implements OnInit {
         text: 'Share something from you L.I.S.T.E.N. journal that stood out with you Grow Group',
         trigger: { 'every': {'weekday': 1, 'hour': 10, 'minute': 40 }, 'count': 1 }
       });
-      this.presentToast("Notification enable");
+      this.presentToast("Notification Enabled");
     }else{
       console.log("WeeklyGroup: "+ this.isWeeklyGrowGroup); 
-      this.presentToast("Notification disable");
+      this.presentToast("Notification Disabled");
       localStorage.removeItem('fourthNotification');
     }
   }

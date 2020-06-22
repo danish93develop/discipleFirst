@@ -15,7 +15,7 @@
     
      <section class="text-center internal-hero" style='background:url(../assets/images/memory-verses.jpg);'>
          <h3 class="span-underline internal-hero-title">
-             <span>MEMORY VERSE</span>
+             <span>MEMORY VERSES</span>
              <!--<ion-icon name="arrow-forward-sharp"></ion-icon>-->
          </h3>
          </section> 
@@ -61,7 +61,7 @@
 
   </section-->
 
-  <div *ngIf="data" class="px-1 item-line-before">
+  <div *ngIf="data" class="px-1 item-line-before text-center verses-content">
     <ion-label><span [innerHTML]="data['post_title']"></span></ion-label>
     <div [innerHTML]="data['weekly_memory_verses']"></div>
   </div> 
